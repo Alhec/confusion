@@ -75,6 +75,9 @@ gulp.task('imagemin', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('build',gulp.series(['clean']), function() {
-    gulp.task('start',gulp.series('copyfonts','imagemin','usemin'));
-});
+gulp.task('build',gulp.parallel('copyfonts','imagemin','usemin','clean'));
+
+// gulp.task('build',gulp.parallel(['clean']), function() {
+//     gulp.task(gulp.series('copyfonts','imagemin','usemin'));
+// });
+
